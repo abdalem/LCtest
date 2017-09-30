@@ -4,7 +4,7 @@
   "description": "loyalty company front test",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently 'lite-server' 'webpack --watch'"
   },
   "repository": {
     "type": "git",
