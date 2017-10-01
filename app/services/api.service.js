@@ -4,6 +4,16 @@ export default class apiService {
   ){
     this.$http = $http
   }
+
+  /**
+  * Get products' informations
+  */
+  getProducts(){
+    return this.$http({
+      url: 'https://test-recrutement.loyaltyexpert.net/products',
+      method: 'GET'
+    })
+  }
 }
 
 apiService.$inject = ['$http']
