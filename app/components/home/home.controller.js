@@ -1,16 +1,21 @@
 export default class homeController {
   constructor(
-    apiService
+    apiService,
+    $mdSidenav
   ) {
     this.apiService = apiService
+    this.$mdSidenav = $mdSidenav
   }
 
   $onInit() {
     this.apiService.getProducts().then(response => {
       this.products = response.data
-      console.log(this.products);
     })
+  }
+
+  toggleList() {
+    this.$mdSidenav('left').toggle();
   }
 }
 
-homeController.$inject = ['apiService']
+homeController.$inject = ['apiService', '$mdSidenav']
