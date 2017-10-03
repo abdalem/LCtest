@@ -72,6 +72,16 @@ export default class apiService {
       method: 'GET'
     })
   }
+
+  /**
+  * Get categories' list
+  */
+  getProduct(id){
+    return this.$http({
+      url: 'https://test-recrutement.loyaltyexpert.net/products/'+id,
+      method: 'GET'
+    })
+  }
 }
 
 apiService.$inject = ['$http']
