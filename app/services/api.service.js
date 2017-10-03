@@ -15,7 +15,8 @@ export default class apiService {
       params: {
         start: config.start,
         limit: config.limit,
-        search: config.search
+        search: config.search,
+        sort: "DESC"
       }
     })
   }
@@ -42,7 +43,7 @@ export default class apiService {
   updateProduct(product){
     return this.$http({
       url: 'https://test-recrutement.loyaltyexpert.net/products/' + product.id,
-      method: 'POST',
+      method: 'PUT',
       data: {
         name: product.anme,
         description: product.description,
