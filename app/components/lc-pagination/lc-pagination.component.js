@@ -1,3 +1,6 @@
+import './lc-pagination.scss'
+
+
 const lcPaginationCtrl = class {
   constructor(
 
