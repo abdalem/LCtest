@@ -1,14 +1,22 @@
 export default class homeController {
   constructor(
     apiService,
-    $mdSidenav
+    $mdSidenav,
+    $mdMedia
   ) {
     this.apiService = apiService
     this.$mdSidenav = $mdSidenav
+    this.$mdMedia = $mdMedia
+    this.config = {start:0, limit: this.$mdMedia('gt-xs')?10:5, search: ""}
   }
 
   $onInit() {
-    this.apiService.getProducts().then(response => {
+      this.getProducts()
+  }
+
+  getProducts(){
+    this.apiService.getProducts(this.config).then(response => {
+      this.nbItems = response.headers('X-Pagination-Count')
       this.products = response.data
       console.log(this.products);
     })
@@ -23,4 +31,4 @@ export default class homeController {
   }
 }
 
-homeController.$inject = ['apiService', '$mdSidenav']
+homeController.$inject = ['apiService', '$mdSidenav', '$mdMedia']

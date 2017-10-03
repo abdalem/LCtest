@@ -8,10 +8,16 @@ export default class apiService {
   /**
   * Get products' informations
   */
-  getProducts(){
+  getProducts(config){
+    console.log(config);
     return this.$http({
       url: 'https://test-recrutement.loyaltyexpert.net/products',
-      method: 'GET'
+      method: 'GET',
+      params: {
+        start: config.start,
+        limit: config.limit,
+        search: config.search
+      }
     })
   }
 
