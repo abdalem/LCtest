@@ -16,6 +16,7 @@ module.exports = {
   controller: lcPaginationCtrl,
   controllerAs: '$ctrl',
   bindings: {
-    pages: '='
+    pages: '<',
+    setPage: '&'
   }
 }

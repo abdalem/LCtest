@@ -55,7 +55,7 @@
         </md-content>
 
         <md-toolbar layout="row" layout-align="center center" class="md-toolbar-tools md-hue-3">
-          <lc-pagination ng-if="$ctrl.nbItems" pages="$ctrl.getNbPages()" set-page="$ctrl.getProducts(pageNum)"></lc-pagination>
+          <lc-pagination ng-if="$ctrl.nbItems" pages="$ctrl.getNbPages()" set-page="$ctrl.getProducts(page*$ctrl.config.limit)"></lc-pagination>
         </md-toolbar>
   </div>
 
