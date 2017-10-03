@@ -10,11 +10,16 @@ export default class homeController {
   $onInit() {
     this.apiService.getProducts().then(response => {
       this.products = response.data
+      console.log(this.products);
     })
   }
 
   toggleList() {
-    this.$mdSidenav('left').toggle();
+    this.$mdSidenav('left').toggle()
+  }
+
+  setBckgImg(image) {
+    return {"background-image": "url(" + image + ")"}
   }
 }
 
