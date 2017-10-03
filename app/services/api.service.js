@@ -74,7 +74,7 @@ export default class apiService {
   }
 
   /**
-  * Get categories' list
+  * Get one product
   */
   getProduct(id){
     return this.$http({
