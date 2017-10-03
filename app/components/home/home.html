@@ -1,4 +1,4 @@
-<md-toolbar layout="row" layout-align="space-between center" class="md-toolbar-tools">
+<md-toolbar layout class="md-toolbar-tools">
   <h1>Loyalty Company</h1>
 </md-toolbar>
 
@@ -15,7 +15,7 @@
 
   <div layout="column" layout-align="start stretch" flex>
     <md-toolbar layout="row" layout-align="space-between center" class="md-toolbar-tools md-hue-3">
-      <md-button class="menu md-icon-button md-fab md-raised md-mini" ng-click="$ctrl.addProduct()">
+      <md-button class="menu md-icon-button md-fab md-raised md-mini" ui-sref="product">
         <md-icon md-svg-icon="add"></md-icon>
       </md-button>
 
@@ -43,7 +43,7 @@
             </div>
 
             <md-card-actions layout="row" layout-align="start center">
-              <md-button class="md-raised" ng-click="$ctrl.updateProduct()">Modifier</md-button>
+              <md-button class="md-raised" ui-sref="product({id: product.id})">Modifier</md-button>
             </md-card-actions>
           </md-card>
         </md-content>

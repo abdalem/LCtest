@@ -1,17 +1,12 @@
-import addProductCtrl from './add-product/add-product.controller'
-import updateProductCtrl from './update-product/update-product.controller'
-
 export default class homeController {
   constructor(
     apiService,
     $mdSidenav,
-    $mdMedia,
-    $mdDialog
+    $mdMedia
   ) {
     this.apiService = apiService
     this.$mdSidenav = $mdSidenav
     this.$mdMedia = $mdMedia
-    this.$mdDialog = $mdDialog
     this.config = {limit: this.$mdMedia('gt-xs')?10:5, search: ""}
   }
 
@@ -24,7 +19,6 @@ export default class homeController {
     this.apiService.getProducts(this.config).then(response => {
       this.nbItems = response.headers('X-Pagination-Count')
       this.products = response.data
-      console.log(this.nbItems);
     })
   }
 
@@ -39,24 +33,6 @@ export default class homeController {
   getNbPages() {
     return Math.ceil(this.nbItems/this.config.limit)
   }
-
-  addProduct() {
-    this.$mdDialog.show({
-      clickOutsideToClose: true,
-      template: require('./add-product/add-product.html'),
-      controller: addProductCtrl,
-      controllerAs: "$ctrl"
-    });
-  }
-
-  updateProduct() {
-    this.$mdDialog.show({
-      clickOutsideToClose: true,
-      template: require('./update-product/update-product.html'),
-      controller: updateProductCtrl,
-      controllerAs: "$ctrl"
-    });
-  }
 }
 
-homeController.$inject = ['apiService', '$mdSidenav', '$mdMedia', '$mdDialog']
+homeController.$inject = ['apiService', '$mdSidenav', '$mdMedia']
