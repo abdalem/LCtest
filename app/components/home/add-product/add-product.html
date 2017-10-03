@@ -1,34 +1,39 @@
 <md-dialog>
-  <md-dialog-content>
-    <form class=""ng-submit="$ctrl.addProduct(product)">
-      <md-input-container>
-        <label>Nom</label>
-        <input type="text" ng-model="product.name" required>
-      </md-input-container>
+  <form name="addProduct" ng-submit="$ctrl.addProduct(product)">
+    <md-dialog-content layout="column" layout-align="center stretch">
+      <div layout layout-align="space-between center" layout-xs="column" layout-align-xs="center stretch">
+        <md-input-container flex="40" flex-xs="100">
+          <label>Nom</label>
+          <input type="text" ng-model="product.name" required>
+        </md-input-container>
 
-      <md-input-container>
-        <label>Description</label>
-        <input type="textarea" ng-model="product.description" required>
-      </md-input-container>
+        <md-input-container flex="40" flex-xs="100">
+          <label>Description</label>
+          <input type="textarea" ng-model="product.description" required>
+        </md-input-container>
+      </div>
 
-      <md-input-container>
-        <label>Categorie(s)</label>
-        <md-select ng-model="product.categories" multiple>
-          <md-option ng-value="category.id" ng-repeat="category in $ctrl.categories">{{category.name}}</md-option>
-        </md-select>
-      </md-input-container>
+      <div layout layout-align="space-between center" layout-xs="column" layout-align-xs="center stretch">
+        <md-input-container flex="40" flex-xs="100">
+          <label>Categorie(s)</label>
+          <md-select ng-model="product.categories" multiple>
+            <md-option ng-value="category.id" ng-repeat="category in $ctrl.categories">{{category.name}}</md-option>
+          </md-select>
+        </md-input-container>
 
-      <md-input-container>
-        <label>Marque</label>
-        <md-select ng-model="product.brand" required>
-            <md-option ng-value="brand.id" ng-repeat="brand in $ctrl.brands">{{brand.name}}</md-option>
-        </md-select>
-      </md-input-container>
+        <md-input-container flex="40" flex-xs="100">
+          <label>Marque</label>
+          <md-select ng-model="product.brand" required>
+              <md-option ng-value="brand.id" ng-repeat="brand in $ctrl.brands">{{brand.name}}</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
 
-      <md-button type="submit" class="md-primary">Close Dialog</md-button>
-    </form>
-  </md-dialog-content>
-  <md-dialog-actions>
-    <md-button ng-click="closeDialog()" class="md-primary">Close Dialog</md-button>
-  </md-dialog-actions>
+    <md-dialog-actions>
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="addProduct.$invalid">Ajouter</md-button>
+
+      <md-button ng-click="$ctrl.closeDialog()" class="md-primary">Annuler</md-button>
+    </md-dialog-actions>
+  </form>
 </md-dialog>
