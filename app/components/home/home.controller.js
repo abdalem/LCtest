@@ -7,18 +7,19 @@ export default class homeController {
     this.apiService = apiService
     this.$mdSidenav = $mdSidenav
     this.$mdMedia = $mdMedia
-    this.config = {start:0, limit: this.$mdMedia('gt-xs')?10:5, search: ""}
+    this.config = {limit: this.$mdMedia('gt-xs')?10:5, search: ""}
   }
 
   $onInit() {
-      this.getProducts()
+      this.getProducts(0)
   }
 
-  getProducts(){
+  getProducts(start){
+    this.config.start = start
     this.apiService.getProducts(this.config).then(response => {
       this.nbItems = response.headers('X-Pagination-Count')
       this.products = response.data
-      console.log(this.products);
+      console.log(this.nbItems);
     })
   }
 
@@ -28,6 +29,10 @@ export default class homeController {
 
   setBckgImg(image) {
     return {"background-image": "url(" + image + ")"}
+  }
+
+  getNbPages() {
+    return Math.ceil(this.nbItems/this.config.limit)
   }
 }
 

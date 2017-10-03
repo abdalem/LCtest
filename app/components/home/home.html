@@ -29,7 +29,7 @@
         <md-icon md-svg-icon="filter"></md-icon>
       </md-button>
 
-      <input placeholder="Rechercher" ng-model="$ctrl.config.search" ng-change="$ctrl.getProducts()" ng-model-options="{debounce: 500}">
+      <input placeholder="Rechercher" ng-model="$ctrl.config.search" ng-change="$ctrl.getProducts(0)" ng-model-options="{debounce: 500}">
     </md-toolbar>
 
     <md-content id="content">
@@ -55,7 +55,7 @@
         </md-content>
 
         <md-toolbar layout="row" layout-align="center center" class="md-toolbar-tools md-hue-3">
-          <lc-pagination></lc-pagination>
+          <lc-pagination ng-if="$ctrl.nbItems" pages="$ctrl.getNbPages()" set-page="$ctrl.getProducts(pageNum)"></lc-pagination>
         </md-toolbar>
   </div>
 

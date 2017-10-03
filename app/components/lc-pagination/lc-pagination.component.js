@@ -5,6 +5,9 @@ const lcPaginationCtrl = class {
 
   }
 
+  getNumber(pages) {
+    return new Array(pages)
+  }
 
 }
 
@@ -13,6 +16,6 @@ module.exports = {
   controller: lcPaginationCtrl,
   controllerAs: '$ctrl',
   bindings: {
-    pokemons: '='
+    pages: '='
   }
 }
