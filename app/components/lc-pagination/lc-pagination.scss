@@ -4,3 +4,8 @@ lc-pagination span {
   margin: 0 5px;
   border-radius: 3px;
 }
+
+lc-pagination {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
