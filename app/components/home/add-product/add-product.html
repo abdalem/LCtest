@@ -1,0 +1,34 @@
+<md-dialog>
+  <md-dialog-content>
+    <form class=""ng-submit="$ctrl.addProduct(product)">
+      <md-input-container>
+        <label>Nom</label>
+        <input type="text" ng-model="product.name" required>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Description</label>
+        <input type="textarea" ng-model="product.description" required>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Categorie(s)</label>
+        <md-select ng-model="product.categories" multiple>
+          <md-option ng-value="category.id" ng-repeat="category in $ctrl.categories">{{category.name}}</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Marque</label>
+        <md-select ng-model="product.brand" required>
+            <md-option ng-value="brand.id" ng-repeat="brand in $ctrl.brands">{{brand.name}}</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-button type="submit" class="md-primary">Close Dialog</md-button>
+    </form>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button ng-click="closeDialog()" class="md-primary">Close Dialog</md-button>
+  </md-dialog-actions>
+</md-dialog>

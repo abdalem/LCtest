@@ -9,7 +9,6 @@ export default class apiService {
   * Get products' informations
   */
   getProducts(config){
-    console.log(config);
     return this.$http({
       url: 'https://test-recrutement.loyaltyexpert.net/products',
       method: 'GET',
@@ -29,9 +28,8 @@ export default class apiService {
       url: 'https://test-recrutement.loyaltyexpert.net/products',
       method: 'POST',
       data: {
-        name: product.anme,
+        name: product.name,
         description: product.description,
-        url: product.url,
         categories: product.categories,
         brand: product.brand
       }
@@ -48,7 +46,6 @@ export default class apiService {
       data: {
         name: product.anme,
         description: product.description,
-        url: product.url,
         categories: product.categories,
         brand: product.brand
       }

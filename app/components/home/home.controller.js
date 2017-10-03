@@ -44,7 +44,8 @@ export default class homeController {
     this.$mdDialog.show({
       clickOutsideToClose: true,
       template: require('./add-product/add-product.html'),
-      controller: addProductCtrl
+      controller: addProductCtrl,
+      controllerAs: "$ctrl"
     });
   }
 
@@ -52,7 +53,8 @@ export default class homeController {
     this.$mdDialog.show({
       clickOutsideToClose: true,
       template: require('./update-product/update-product.html'),
-      controller: updateProductCtrl
+      controller: updateProductCtrl,
+      controllerAs: "$ctrl"
     });
   }
 }
