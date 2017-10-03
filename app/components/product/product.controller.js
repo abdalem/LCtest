@@ -1,10 +1,12 @@
 export default class productController {
   constructor(
     apiService,
-    $stateParams
+    $stateParams,
+    $state
   ) {
     this.apiService = apiService
     this.$stateParams = $stateParams
+    this.$state = $state
   }
 
   $onInit() {
@@ -20,64 +22,24 @@ export default class productController {
 
     if (!this.createMode) {
       this.apiService.getProduct(this.$stateParams.id).then(response => {
-        this.product = {description: response.data.description, name: response.data.name, brand: response.data.brand.id, categories: []}
+        this.product = {id: response.data.id, description: response.data.description, name: response.data.name, brand: response.data.brand.id, categories: []}
         for (let i = 0; i < response.data.categories.length; i++) {
           this.product.categories.push(response.data.categories[i].id)
         }
       })
     }
-    // if(angular.isUndefined(this.$stateParams.id)){
-    //   this.createMode = true
-    // } else
-      // this.getProducts(0)
   }
 
-  // getProducts(start){
-  //   this.config.start = start
-  //   this.apiService.getProducts(this.config).then(response => {
-  //     this.nbItems = response.headers('X-Pagination-Count')
-  //     this.products = response.data
-  //     console.log(this.nbItems);
-  //   })
-  // }
-  //
-  // toggleList() {
-  //   this.$mdSidenav('left').toggle()
-  // }
-  //
-  // setBckgImg(image) {
-  //   return {"background-image": "url(" + image + ")"}
-  // }
-  //
-  // getNbPages() {
-  //   return Math.ceil(this.nbItems/this.config.limit)
-  // }
-  //
-  // addProduct() {
-  //   this.$mdDialog.show({
-  //     clickOutsideToClose: true,
-  //     template: require('./add-product/add-product.html'),
-  //     controller: addProductCtrl,
-  //     controllerAs: "$ctrl",
-  //     parent: angular.element(document.body)
-  //   }).then(function(parent){
-  //     console.log(nbItems);
-  //     // console.log(this.nbItems);
-  //   }, function(parent){
-  //     // console.log(this.nbItems);
-  //     console.log(nbItems);
-  //
-  //   })
-  // }
-  //
-  // updateProduct() {
-  //   this.$mdDialog.show({
-  //     clickOutsideToClose: true,
-  //     template: require('./update-product/update-product.html'),
-  //     controller: updateProductCtrl,
-  //     controllerAs: "$ctrl"
-  //   });
-  // }
+  addProduct(product) {
+    console.log(product);
+    this.apiService.addProduct(product)
+    this.$state.go('home')
+  }
+
+  updateProduct(product) {
+    console.log(product);
+    this.apiService.updateProduct(product)
+  }
 }
 
-productController.$inject = ['apiService', '$stateParams']
+productController.$inject = ['apiService', '$stateParams', '$state']

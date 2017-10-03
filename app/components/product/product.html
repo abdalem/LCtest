@@ -3,26 +3,28 @@
 </md-toolbar>
 
 <md-content flex>
-  <form name="lcForm" layout="row" layout-xs="column" layout-align="center center" layout-fill layout-padding>
+  <md-button class="md-raised md-hue" ui-sref="home">Retour</md-button>
+
+  <form name="lcForm" layout="row" layout-xs="column" layout-align="center center" layout-padding>
     <div flex-xs="100" flex="50" layout="column">
-      <md-input-container flex="40" flex-xs="100">
+      <md-input-container flex="100">
         <label>Nom</label>
         <input type="text" ng-model="$ctrl.product.name" required>
       </md-input-container>
 
-      <md-input-container flex="40" flex-xs="100">
+      <md-input-container flex="100">
         <label>Description</label>
-        <input type="textarea" ng-model="$ctrl.product.description" required>
+        <textarea type="textarea" ng-model="$ctrl.product.description" required> </textarea>
       </md-input-container>
 
-      <md-input-container flex="40" flex-xs="100">
+      <md-input-container flex="100">
         <label>Categorie(s)</label>
         <md-select ng-model="$ctrl.product.categories" multiple>
           <md-option ng-value="category.id" ng-repeat="category in $ctrl.categories">{{category.name}}</md-option>
         </md-select>
       </md-input-container>
 
-      <md-input-container flex="40" flex-xs="100">
+      <md-input-container flex="100">
         <label>Marque</label>
         <md-select ng-model="$ctrl.product.brand" required>
             <md-option ng-value="brand.id" ng-repeat="brand in $ctrl.brands">{{brand.name}}</md-option>
