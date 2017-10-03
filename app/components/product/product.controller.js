@@ -18,8 +18,13 @@ export default class productController {
       this.categories = response.data
     })
 
-    if (this.createMode) {
-      getProduct($stateParams.id)
+    if (!this.createMode) {
+      this.apiService.getProduct(this.$stateParams.id).then(response => {
+        this.product = {description: response.data.description, name: response.data.name, brand: response.data.brand.id, categories: []}
+        for (let i = 0; i < response.data.categories.length; i++) {
+          this.product.categories.push(response.data.categories[i].id)
+        }
+      })
     }
     // if(angular.isUndefined(this.$stateParams.id)){
     //   this.createMode = true
