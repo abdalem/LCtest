@@ -1,0 +1,41 @@
+<md-toolbar layout class="md-toolbar-tools">
+  <h1>Loyalty Company</h1>
+</md-toolbar>
+
+<md-content flex>
+  <form name="lcForm" layout="row" layout-xs="column" layout-align="center center" layout-fill layout-padding>
+    <div flex-xs="100" flex="50" layout="column">
+      <md-input-container flex="40" flex-xs="100">
+        <label>Nom</label>
+        <input type="text" ng-model="product.name" required>
+      </md-input-container>
+
+      <md-input-container flex="40" flex-xs="100">
+        <label>Description</label>
+        <input type="textarea" ng-model="product.description" required>
+      </md-input-container>
+
+      <md-input-container flex="40" flex-xs="100">
+        <label>Categorie(s)</label>
+        <md-select ng-model="product.categories" multiple>
+          <md-option ng-value="category.id" ng-repeat="category in $ctrl.categories">{{category.name}}</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container flex="40" flex-xs="100">
+        <label>Marque</label>
+        <md-select ng-model="product.brand" required>
+            <md-option ng-value="brand.id" ng-repeat="brand in $ctrl.brands">{{brand.name}}</md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+
+    <div class="" layout="column" layout-align="space-around center" layout-xs="row">
+      <md-button class="md-raised md-primary" ng-if="$ctrl.createMode" ng-disabled="lcForm.$invalid" ng-click="$ctrl.addProduct(product)">Ajouter</md-button>
+
+      <md-button class="md-raised md-primary" ng-if="!$ctrl.createMode" ng-disabled="lcForm.$invalid" ng-click="$ctrl.updateProduct(product)">Modifier</md-button>
+
+      <md-button ui-sref="home" class="md-primary">Annuler</md-button>
+    </div>
+  </form>
+</md-content>
