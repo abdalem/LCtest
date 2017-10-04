@@ -10,6 +10,11 @@ const lcPaginationCtrl = class {
     this.paginationStart = 0
   }
 
+  $onChanges(changes){
+    this.curPage = 0
+    this.paginationStart = 0
+    this.setPage({page: 0})
+  }
 
   getNumber(pages) {
     return Array.from(Array(pages),(x,i)=>i)

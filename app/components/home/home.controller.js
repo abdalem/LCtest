@@ -31,6 +31,7 @@ export default class homeController {
   }
 
   getNbPages() {
+    this.config.limit = this.$mdMedia('gt-xs')?10:5
     return Math.ceil(this.nbItems/this.config.limit)
   }
 }
