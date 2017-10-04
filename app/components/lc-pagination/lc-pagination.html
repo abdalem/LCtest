@@ -1,1 +1,1 @@
-<span ng-repeat="page in $ctrl.getNumber($ctrl.pages) track by $index" ng-click="$ctrl.setPage({page: $index})">{{$index+1}}</span>
+<span ng-repeat="page in $ctrl.getNumber($ctrl.pages) | limitTo:($ctrl.$mdMedia('xs')?5:$ctrl.pages):$ctrl.paginationStart track by $index" ng-click="$ctrl.setCurrentPage(page)" ng-style="$ctrl.getStyle(page)">{{$index == 4 && $ctrl.$mdMedia('xs') && page+1!=$ctrl.pages ? '...':page+1}}</span>
