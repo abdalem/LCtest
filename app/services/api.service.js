@@ -45,7 +45,7 @@ export default class apiService {
       url: 'https://test-recrutement.loyaltyexpert.net/products/' + product.id,
       method: 'PUT',
       data: {
-        name: product.anme,
+        name: product.name,
         description: product.description,
         categories: product.categories,
         brand: product.brand
