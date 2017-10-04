@@ -2,11 +2,13 @@ export default class productController {
   constructor(
     apiService,
     $stateParams,
-    $state
+    $state,
+    $mdToast
   ) {
     this.apiService = apiService
     this.$stateParams = $stateParams
     this.$state = $state
+    this.$mdToast = $mdToast
   }
 
   $onInit() {
@@ -37,9 +39,14 @@ export default class productController {
   *
   */
   addProduct(product) {
-    console.log(product);
-    this.apiService.addProduct(product)
-    this.$state.go('home')
+    this.apiService.addProduct(product).then(response => {
+      if(response.status == 201) {
+        this.showToast('Votre produit a bien été créé')
+        this.$state.go('home')
+      } else {
+        this.showToast('Une erreur a été détecté')
+      }
+    })
   }
 
   /**
@@ -49,9 +56,30 @@ export default class productController {
   *
   */
   updateProduct(product) {
-    this.apiService.updateProduct(product)
-    this.$state.go('home')
+    this.apiService.updateProduct(product).then(response => {
+      if(response.status == 200) {
+        this.showToast('Votre produit a bien été modifé')
+        this.$state.go('home')
+      } else {
+        this.showToast('Une erreur a été détecté')
+      }
+    })
+  }
+
+  /**
+  * Show toast with custom message
+  *
+  * @param {String} message
+  *
+  */
+  showToast(message) {
+    this.$mdToast.show(
+      this.$mdToast.simple()
+        .textContent(message)
+        .hideDelay(3000)
+        .position('top right')
+    )
   }
 }
 
-productController.$inject = ['apiService', '$stateParams', '$state']
+productController.$inject = ['apiService', '$stateParams', '$state', '$mdToast']
