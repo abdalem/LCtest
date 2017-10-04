@@ -7,6 +7,9 @@ export default class apiService {
 
   /**
   * Get products' informations
+  *
+  * @param {Object} config (object that contain config to paginate and search throw the list)
+  *
   */
   getProducts(config){
     return this.$http({
@@ -15,14 +18,16 @@ export default class apiService {
       params: {
         start: config.start,
         limit: config.limit,
-        search: config.search,
-        sort: "DESC"
+        search: config.search
       }
     })
   }
 
   /**
-  * Create a new product
+  * Add a new product
+  *
+  * @param {Object} product (object that contain new product information)
+  *
   */
   addProduct(product){
     return this.$http({
@@ -38,7 +43,10 @@ export default class apiService {
   }
 
   /**
-  * Update a product
+  * update a product
+  *
+  * @param {Object} product (object that contain product infomation that will be update by his id)
+  *
   */
   updateProduct(product){
     return this.$http({
@@ -75,6 +83,9 @@ export default class apiService {
 
   /**
   * Get one product
+  *
+  * @param {Integer} id
+  *
   */
   getProduct(id){
     return this.$http({

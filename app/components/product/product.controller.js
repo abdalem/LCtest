@@ -30,15 +30,27 @@ export default class productController {
     }
   }
 
+  /**
+  * Call apiService to add a new product on api
+  *
+  * @param {Object} product
+  *
+  */
   addProduct(product) {
     console.log(product);
     this.apiService.addProduct(product)
     this.$state.go('home')
   }
 
+  /**
+  * Call apiService to update a product on api
+  *
+  * @param {Object} product
+  *
+  */
   updateProduct(product) {
-    console.log(product);
     this.apiService.updateProduct(product)
+    this.$state.go('home')
   }
 }
 

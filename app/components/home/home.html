@@ -3,7 +3,7 @@
 </md-toolbar>
 
 <div flex layout="row">
-  <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="left" ng-click="$ctrl.toggleList()">
+  <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="left" ng-click="$ctrl.toggleFilter()">
     <md-list>
       <md-list-item>
         <md-button>
@@ -19,7 +19,7 @@
         <md-icon md-svg-icon="add"></md-icon>
       </md-button>
 
-      <md-button class="menu md-icon-button md-fab md-raised md-mini" hide-gt-sm ng-click="$ctrl.toggleList()">
+      <md-button class="menu md-icon-button md-fab md-raised md-mini" hide-gt-sm ng-click="$ctrl.toggleFilter()">
         <md-icon md-svg-icon="filter"></md-icon>
       </md-button>
 
