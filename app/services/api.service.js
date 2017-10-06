@@ -1,4 +1,4 @@
-export default class apiService {
+export const apiService = class {
   constructor(
     $http
   ){
