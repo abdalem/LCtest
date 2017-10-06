@@ -1,4 +1,6 @@
-export default class homeController {
+import template from './home.html'
+
+const homeCtrl = class {
   constructor(
     apiService,
     $mdSidenav,
@@ -58,4 +60,9 @@ export default class homeController {
   }
 }
 
-homeController.$inject = ['apiService', '$mdSidenav', '$mdMedia']
+homeCtrl.$inject = ['apiService', '$mdSidenav', '$mdMedia']
+
+export const homeComponent = {
+  template,
+  controller: homeCtrl
+}

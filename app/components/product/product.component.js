@@ -1,4 +1,6 @@
-export default class productController {
+import template from './product.html'
+
+const productCtrl = class {
   constructor(
     apiService,
     $stateParams,
@@ -82,4 +84,9 @@ export default class productController {
   }
 }
 
-productController.$inject = ['apiService', '$stateParams', '$state', '$mdToast']
+productCtrl.$inject = ['apiService', '$stateParams', '$state', '$mdToast']
+
+export const productComponent = {
+  template,
+  controller: productCtrl
+}

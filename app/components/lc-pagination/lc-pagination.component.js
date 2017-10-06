@@ -1,4 +1,5 @@
 import './lc-pagination.scss'
+import template from './lc-pagination.html'
 
 
 const lcPaginationCtrl = class {
@@ -58,10 +59,10 @@ const lcPaginationCtrl = class {
 }
 
 lcPaginationCtrl.$inject = ['$mdMedia']
-module.exports = {
-  template: require('./lc-pagination.html'),
+
+export const lcPagination = {
+  template,
   controller: lcPaginationCtrl,
-  controllerAs: '$ctrl',
   bindings: {
     pages: '<',
     setPage: '&'

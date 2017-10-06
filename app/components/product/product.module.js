@@ -2,10 +2,10 @@ import uirouter from '@uirouter/angularjs'
 import angularmd from 'angular-material'
 
 import './product.scss'
-import routes from './product.routes'
-import productController from './product.controller'
+import {routes} from './product.routes'
+import {productComponent} from './product.component'
 
-export default angular.module('lcTest.product', [uirouter, angularmd])
+export const productState = angular.module('lcTest.product', [uirouter, angularmd])
   .config(routes)
-  .controller('productController', productController)
+  .component('productComponent', productComponent)
   .name

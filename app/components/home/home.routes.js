@@ -1,9 +1,8 @@
-export default function routes($stateProvider) {
+export const routes = function($stateProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      template: require('./home.html'),
-      controller: 'homeController as $ctrl'
+      component: 'homeComponent'
     })
 }
 
