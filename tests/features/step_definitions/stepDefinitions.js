@@ -29,30 +29,21 @@ defineSupportCode(function({Given, When, Then, setDefaultTimeout}) {
     next();
   });
 
-  When(/^I click category dropdown list "([^"]*)"$/, function (button, next) {
+  When(/^I choose a category in list "([^"]*)"$/, function (button, next) {
     element(by.id('categories')).click();
-    next();
-  });
-
-  When(/^I choose a category option "([^"]*)"$/, function (button, next) {
     element(by.id('category-option')).click();
     browser.actions().sendKeys(protractor.Key.ESCAPE).perform();
     next();
   });
 
-  When(/^I click brand dropdown list "([^"]*)"$/, function (button, next) {
+  When(/^I choose a brand in list "([^"]*)"$/, function (button, next) {
     element(by.id('brands')).click();
-    next();
-  });
-
-  When(/^I choose a brand option "([^"]*)"$/, function (button, next) {
     element(by.id('brand-option')).click();
     next();
   });
 
   When(/^I click button "([^"]*)" to valid$/, function (button, next) {
     element(by.id('valid')).click();
-    // browser.waitForAngular();
     next();
   });
 
