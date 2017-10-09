@@ -35,7 +35,7 @@
     <div class="" layout="column" layout-align="space-around center" layout-xs="row">
       <md-button id="valid" class="md-raised md-primary" ng-if="$ctrl.createMode" ng-disabled="lcForm.$invalid" ng-click="$ctrl.addProduct($ctrl.product)">Ajouter</md-button>
 
-      <md-button class="md-raised md-primary" ng-if="!$ctrl.createMode" ng-disabled="lcForm.$invalid" ng-click="$ctrl.updateProduct($ctrl.product)">Modifier</md-button>
+      <md-button id="update" class="md-raised md-primary" ng-if="!$ctrl.createMode" ng-disabled="lcForm.$invalid" ng-click="$ctrl.updateProduct($ctrl.product)">Modifier</md-button>
 
       <md-button ui-sref="home" class="md-primary">Annuler</md-button>
     </div>

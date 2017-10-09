@@ -25,11 +25,11 @@ exports.config = {
 
   // Spec patterns are relative to this directory.
   specs: [
-    'features/*.feature'
+    'features/newProduct.feature'
   ],
 
   cucumberOpts: {
-    require: 'features/step_definitions/stepDefinitions.js'
+    require: 'features/step_definitions/newProduct.js'
   },
   onPrepare: function () {
     browser.manage().window().maximize(); // maximize the browser before executing the feature files
