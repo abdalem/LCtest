@@ -4,7 +4,8 @@
   "description": "loyalty company front test",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently 'lite-server' 'webpack --watch'"
+    "start": "concurrently 'lite-server' 'webpack --watch'",
+    "test": "./node_modules/.bin/protractor tests/protractor.conf.js"
   },
   "repository": {
     "type": "git",
@@ -32,5 +33,13 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "protractor": "~3.3",
+    "protractor-cucumber": "~0.1",
+    "protractor-cucumber-framework": "^4.0.7",
+    "protractor-jasmine-cucumber": "~0.2.2"
   }
 }

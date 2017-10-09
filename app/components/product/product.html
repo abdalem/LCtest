@@ -3,37 +3,37 @@
 </md-toolbar>
 
 <md-content flex>
-  <md-button class="md-raised md-hue" ui-sref="home">Retour</md-button>
+  <md-button id="back" class="md-raised md-hue" ui-sref="home">Retour</md-button>
 
   <form name="lcForm" layout="row" layout-xs="column" layout-align="center center" layout-padding>
     <div flex-xs="100" flex="50" layout="column">
       <md-input-container flex="100">
         <label>Nom</label>
-        <input type="text" ng-model="$ctrl.product.name" required>
+        <input id="name" type="text" ng-model="$ctrl.product.name" required>
       </md-input-container>
 
       <md-input-container flex="100">
         <label>Description</label>
-        <textarea type="textarea" ng-model="$ctrl.product.description" required> </textarea>
+        <textarea id="description" type="textarea" ng-model="$ctrl.product.description" required> </textarea>
       </md-input-container>
 
       <md-input-container flex="100">
         <label>Categorie(s)</label>
-        <md-select ng-model="$ctrl.product.categories" multiple>
-          <md-option ng-value="category.id" ng-repeat="category in $ctrl.categories">{{category.name}}</md-option>
+        <md-select id="categories" ng-model="$ctrl.product.categories" multiple>
+          <md-option id="category-option" ng-value="category.id" ng-repeat="category in $ctrl.categories">{{category.name}}</md-option>
         </md-select>
       </md-input-container>
 
       <md-input-container flex="100">
         <label>Marque</label>
-        <md-select ng-model="$ctrl.product.brand" required>
-            <md-option ng-value="brand.id" ng-repeat="brand in $ctrl.brands">{{brand.name}}</md-option>
+        <md-select md-on-close="true" id="brands" ng-model="$ctrl.product.brand" required>
+            <md-option id="brand-option" ng-value="brand.id" ng-repeat="brand in $ctrl.brands">{{brand.name}}</md-option>
         </md-select>
       </md-input-container>
     </div>
 
     <div class="" layout="column" layout-align="space-around center" layout-xs="row">
-      <md-button class="md-raised md-primary" ng-if="$ctrl.createMode" ng-disabled="lcForm.$invalid" ng-click="$ctrl.addProduct($ctrl.product)">Ajouter</md-button>
+      <md-button id="valid" class="md-raised md-primary" ng-if="$ctrl.createMode" ng-disabled="lcForm.$invalid" ng-click="$ctrl.addProduct($ctrl.product)">Ajouter</md-button>
 
       <md-button class="md-raised md-primary" ng-if="!$ctrl.createMode" ng-disabled="lcForm.$invalid" ng-click="$ctrl.updateProduct($ctrl.product)">Modifier</md-button>
 
