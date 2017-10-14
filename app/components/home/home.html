@@ -15,7 +15,7 @@
 
   <div layout="column" layout-align="start stretch" flex>
     <md-toolbar layout="row" layout-align="space-between center" class="md-toolbar-tools md-hue-3">
-      <md-button class="menu md-icon-button md-fab md-raised md-mini" ui-sref="product">
+      <md-button id="addproduct" class="menu md-icon-button md-fab md-raised md-mini" ui-sref="product">
         <md-icon md-svg-icon="add"></md-icon>
       </md-button>
 
@@ -23,7 +23,7 @@
         <md-icon md-svg-icon="filter"></md-icon>
       </md-button>
 
-      <input placeholder="Rechercher" ng-model="$ctrl.config.search" ng-change="$ctrl.getProducts(0)" ng-model-options="{debounce: 500}">
+      <input id="search" placeholder="Rechercher" ng-model="$ctrl.config.search" ng-change="$ctrl.getProducts(0)" ng-model-options="{debounce: 500}">
     </md-toolbar>
 
     <md-content id="content">
@@ -43,7 +43,7 @@
             </div>
 
             <md-card-actions layout="row" layout-align="start center">
-              <md-button class="md-raised" ui-sref="product({id: product.id})">Modifier</md-button>
+              <md-button id="update" class="md-raised" ui-sref="product({id: product.id})">Modifier</md-button>
             </md-card-actions>
           </md-card>
         </md-content>
